@@ -1,0 +1,28 @@
+/Task 1.1 for Creating a file
+
+DECLARE mName : STRING
+DECLARE IDnumber : INTEGER
+DECLARE choice : STRING
+
+mName = ""
+IDnumber = 0
+choice = ""
+
+REPEAT
+    OUTPUT "Enter the name: "
+    INPUT mName
+
+    OUTPUT "Enter the number ID of the member please: "
+    INPUT IDnumber
+     
+    OUTPUT "Do you wish to enter more records? Press (Y/N)"
+    INPUT choice
+
+    OPENFILE "ClubMembers.txt" FOR APPEND
+    
+    WRITEFILE "ClubMembers.txt", mName
+    WRITEFILE "ClubMembers.txt", IDnumber
+
+    choice = UPPER(choice)
+
+UNTIL choice = "N"
