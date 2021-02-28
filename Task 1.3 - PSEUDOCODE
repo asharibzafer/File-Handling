@@ -1,0 +1,36 @@
+/TASK 1.3 SEARCHING USER BY NAME
+
+DECLARE mName : STRING
+DECLARE IDnumber : INTEGER
+
+/TASK 1.3 NAME SEARCHING IN FILE
+DECLARE Isfound : BOOLEAN
+DECLARE SearchName : STRING
+
+Isfound = #FALSE#
+SearchName = ""
+
+OUTPUT  "Enter the name you want to search: "
+INPUT SearchName
+
+OPENFILE "ClubMembers.txt" FOR INPUT
+
+WHILE NOT EOF("ClubMembers.txt")
+  
+  READFILE "ClubMembers.txt", mName
+  READFILE "ClubMembers.txt", IDnumber
+
+  IF UPPER(mName) = UPPER(SearchName)
+    THEN
+      Isfound = TRUE
+      OUTPUT "The member ID number is: ", IDnumber
+  ENDIF
+
+ENDWHILE
+
+CLOSEFILE "ClubMembers.txt"
+
+IF Isfound = FALSE 
+  THEN
+    OUTPUT "The name was not found..."
+ENDIF
