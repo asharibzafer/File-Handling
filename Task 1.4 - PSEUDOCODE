@@ -1,0 +1,32 @@
+/TASK 1.4 ADD NEW MEMBERS DATA INPUT
+
+DECLARE mName : STRING
+DECLARE IDnumber : INTEGER
+DECLARE choice2 : CHARACTER
+
+
+mName = ""
+IDnumber = 0
+choice2 = ''
+
+REPEAT
+  
+  OUTPUT "Enter the name: "
+  INPUT mName
+
+  OUTPUT "Enter the member ID number please: "
+  INPUT IDnumber
+
+  OUTPUT "Do you wish to add more data? Please enter (Y/N)"
+  INPUT choice2
+
+  OPENFILE "ClubMembers.txt" FOR APPEND
+
+  WRITEFILE "ClubMembers.txt", mName
+  WRITEFILE "ClubMembers.txt", IDnumber
+
+  CLOSEFILE "ClubMembers.txt"
+
+  choice2 = UPPER(choice2)
+
+UNTIL choice2 = 'N'
