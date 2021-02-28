@@ -1,0 +1,34 @@
+/TASK 1.5 Save additional information
+
+DECLARE mName : STRING
+DECLARE IDnumber : INTEGER
+DECLARE TelephoneNum : STRING
+DECLARE MembershipDate : STRING
+
+TelephoneNum = ""
+mName = ""
+IDnumber = 0
+MembershipDate = ""
+
+OPENFILE "ClubMembers.txt" FOR INPUT
+OPENFILE "ClubMembersNewFile.txt" FOR APPEND
+
+WHILE NOT EOF ("ClubMembers.txt")
+  READFILE "ClubMembers.txt", mName
+  READFILE "ClubMembers.txt", IDnumber
+
+  OUTPUT "ENTER THE TELEPHONE NUMBER: "
+  INPUT TelephoneNum
+
+  OUTPUT "ENTER THE MEMBERSHIP JOINING DATE: "
+  INPUT MembershipDate
+
+  WRITEFILE "ClubMembersNewFile.txt", mName
+  WRITEFILE "ClubMembersNewFile.txt", IDnumber
+  WRITEFILE "ClubMembersNewFile.txt", TelephoneNum
+  WRITEFILE "ClubMembersNewFile.txt", MembershipDate
+
+ENDWHILE
+
+CLOSEFILE "ClubMembers.txt"
+CLOSEFILE "ClubMembersNewFile.txt"
