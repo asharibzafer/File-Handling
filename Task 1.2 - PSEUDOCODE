@@ -1,0 +1,18 @@
+/Task 1.2 OUTPUT THE FILE CONTENTS (INPUT)
+
+DECLARE mName : STRING
+DECLARE IDnmuber : INTEGER
+
+OPENFILE "ClubMembers.txt" FOR INPUT
+
+WHILE NOT EOF ("ClubMember.txt")
+
+  READFILE "ClubMembers.txt", mName
+  READFILE "ClubMembers.txt", IDnumber
+
+  OUTPUT "Member name is: ", mName
+  OUTPUT "Member ID number is: ", IDnumber
+
+ENDWHILE
+
+CLOSEFILE "ClubMembers.txt"
